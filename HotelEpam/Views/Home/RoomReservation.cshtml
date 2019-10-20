@@ -1,0 +1,38 @@
+﻿@using System.Runtime.InteropServices
+
+@{
+    ViewBag.Title = "RoomReservation";
+}
+
+<h2>RoomReservation</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        @Html.Label("RoomClass", "Класс апартаментов")
+        @Html.DropDownList("RoomClass", ViewData["RoomClassItems"] as IEnumerable<SelectListItem>)
+
+    </div>
+    <div>
+        @Html.Label("CountOfPlaces", "Класс апартаментов")
+        @Html.DropDownList("CountOfPlaces", ViewData["CountOfPlacesItems"] as IEnumerable<SelectListItem>)
+    </div>
+
+    <div>
+        @Html.Label("StartDate", "Дата приезда в отель")
+        @Html.TextBox("StartDate",null,new{@type = "date"})
+    </div>
+
+    <div>
+        @Html.Label("EndDate", "Дата отъезда")
+        @Html.TextBox("EndDate", null, new { @type = "date" })
+    </div>
+
+    @Html.ValidationMessage("DateValidationError")
+    <input type="submit" value="Отправить заявку" />
+    
+    <div>
+        <span>@ViewBag.SuccessMessage</span>
+    </div>
+}

@@ -1,0 +1,28 @@
+﻿@using ServiceLibrary
+@model IEnumerable<ServiceLibrary.Booking>
+
+@{
+    ViewBag.Title = "NotProcessedRequests";
+}
+
+<h2>NotProcessedRequests</h2>
+
+
+@foreach (Booking booking in Model)
+{
+    <div>
+        @using (Html.BeginForm("ProcessingRequest","Home"))
+        {<div>
+             @Html.LabelFor(b => booking.Id)
+             @Html.TextBoxFor(b => booking.Id, new {@readonly = true})
+         </div>
+            @Html.TextBoxFor(b => booking.Id, new { @readonly = true })
+            @Html.TextBoxFor(b => booking.RoomRequest.CountOfPlaces,new { @readonly = true })
+            @Html.TextBoxFor(b => booking.RoomRequest.ClassRoom.Name, new { @readonly = true })
+            @Html.TextBoxFor(b => booking.DateStart, new { @readonly = true })
+            @Html.TextBoxFor(b => booking.DateEnd, new { @readonly = true })
+            @Html.DropDownListFor(b => booking.RoomNumber, ViewData["RoomNumberItems"] as IEnumerable<SelectListItem>)
+            <input type="submit"/>
+        }
+    </div>
+}

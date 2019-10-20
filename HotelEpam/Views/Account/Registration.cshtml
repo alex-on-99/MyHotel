@@ -1,0 +1,66 @@
+﻿@model HotelEpam.Models.UserRegistration
+
+@{
+    Layout = "~/Views/Shared/HotelLayout.cshtml";
+}
+
+<h2>Registration</h2>
+
+@using (@Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.FirstName)
+        @Html.EditorFor(model => model.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.SecondName)
+        @Html.EditorFor(model => model.SecondName)
+        @Html.ValidationMessageFor(model => model.SecondName)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Login)
+        @Html.EditorFor(model => model.Login)
+        @Html.ValidationMessageFor(model => model.Login)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.DateOfBirth)
+        @Html.EditorFor(model => model.DateOfBirth)
+        @Html.ValidationMessageFor(model => model.DateOfBirth)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Password)
+        @Html.EditorFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.ConfirmPassword)
+        @Html.EditorFor(model => model.ConfirmPassword)
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+    </div>
+
+    <div>
+        @Html.EditorFor(model => model.PrivacyPolicy)
+        @Html.LabelFor(model => model.PrivacyPolicy)
+        @Html.ValidationMessageFor(model => model.PrivacyPolicy)
+    </div>
+
+
+    <input type="submit" value="Зарегистрироваться" />
+}
+
+<span>
+    Если вы ещё не зарегистрированы в системе перейдите на страницу
+    @Html.ActionLink("Регистрации", "Registration")
+</span>

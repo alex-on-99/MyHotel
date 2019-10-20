@@ -1,0 +1,13 @@
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\EntityFramework.dll
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\EntityFramework.xml
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\epam\HotelEpam\ServiseLibrary\obj\Debug\ServiceLibrary.csprojAssemblyReference.cache
+D:\epam\HotelEpam\ServiseLibrary\obj\Debug\ServiceLibrary.csproj.CopyComplete
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\ServiceLibrary.dll.config
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\ServiceLibrary.dll
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\ServiceLibrary.pdb
+D:\epam\HotelEpam\ServiseLibrary\obj\Debug\ServiceLibrary.dll
+D:\epam\HotelEpam\ServiseLibrary\obj\Debug\ServiceLibrary.pdb
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\System.Web.Providers.dll
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\System.Web.Providers.xml

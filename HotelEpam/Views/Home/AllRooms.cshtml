@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ServiceLibrary.Room>
+
+@{
+    ViewBag.Title = "AllRooms";
+    List<int> roomClassItems = Model.Select(m => m.ClassRoomId).Distinct().ToList();
+}
+
+<h2>AllRooms</h2>
+<div>
+    @Html.Label("RoomItems", "Тип номера")
+    @Html.DropDownList("RoomItems", ViewData["RoomItems"] as IEnumerable<SelectListItem>)
+</div>
+
+<div id="showing-rooms">
+
+</div>

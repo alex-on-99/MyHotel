@@ -1,0 +1,29 @@
+﻿@model HotelEpam.Models.UserAuthorization
+
+@{
+    ViewBag.Title = "Authorization";
+}
+
+<h2>Authorization</h2>
+
+@using (@Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.Login)
+        @Html.EditorFor(model => model.Login)
+    </div>
+    <div>
+
+        @Html.LabelFor(model => model.Password)
+        @Html.EditorFor(model => model.Password)
+    </div>
+
+    @Html.ValidationMessage("AuthorizationValidationError")
+
+    <input type="submit" value="Войти" />
+}
+
+<span>
+    Если вы ещё не зарегистрированы в системе перейдите на страницу
+    @Html.ActionLink("Регистрации", "Registration")
+</span>
