@@ -32,8 +32,8 @@ namespace HotelEpam.Controllers
 
         private IEnumerable<SelectListItem> GetClassRoomItems(List<Room> rooms)
         {
-            IEnumerable<SelectListItem> classRoomItems = rooms.Select(r => r.ClassRoom).Distinct().
-                OrderBy(r => r.Id).Select(
+            IEnumerable<SelectListItem> classRoomItems = rooms.Select(r => r.ClassRoom).Distinct().OrderBy(r => r.Id)
+                .Select(
                     r => new SelectListItem()
                     {
                         Text = r.Name.ToString(),
@@ -46,8 +46,8 @@ namespace HotelEpam.Controllers
 
         private IEnumerable<SelectListItem> GetCountOfPlacesItems(List<Room> rooms)
         {
-            IEnumerable<SelectListItem> countOfPlacesItems = rooms.Select(r => r.CountOfPlaces).
-                Distinct().OrderBy(r => r).Select(
+            IEnumerable<SelectListItem> countOfPlacesItems = rooms.Select(r => r.CountOfPlaces).Distinct()
+                .OrderBy(r => r).Select(
                     r => new SelectListItem()
                     {
                         Text = r.ToString(),
@@ -125,14 +125,13 @@ namespace HotelEpam.Controllers
         {
             List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
 
-            IEnumerable<SelectListItem> roomNumberItems = rooms.Select(r => r.Numder).
-                OrderBy(r => r).Select(
-                    r => new SelectListItem()
-                    {
-                        Text = r.ToString(),
-                        Value = r.ToString()
-                    }
-                );
+            IEnumerable<SelectListItem> roomNumberItems = rooms.Select(r => r.Numder).OrderBy(r => r).Select(
+                r => new SelectListItem()
+                {
+                    Text = r.ToString(),
+                    Value = r.ToString()
+                }
+            );
             ViewData["RoomNumberItems"] = roomNumberItems;
 
             List<Booking> bookings = CommunicationWithDataBase.GetBookingRequests();
@@ -144,7 +143,7 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "manager")]
         public ActionResult ProcessingRequest(Booking booking)
         {
-            CommunicationWithDataBase.UpdateRoomInBooking(booking.Id,Convert.ToInt32(booking.RoomNumber));
+            CommunicationWithDataBase.UpdateRoomInBooking(booking.Id, Convert.ToInt32(booking.RoomNumber));
             return RedirectToAction("NotProcessedRequests");
         }
 
@@ -155,22 +154,22 @@ namespace HotelEpam.Controllers
             {
                 new SelectListItem()
                 {
-                    Text = "Свободен",
+                    Text = "Свободены",
                     Value = "1"
                 },
                 new SelectListItem()
                 {
-                    Text = "Забронирован",
+                    Text = "Заняты",
                     Value = "2"
                 },
                 new SelectListItem()
                 {
-                    Text = "Занят",
+                    Text = "Забронированы",
                     Value = "3"
                 },
                 new SelectListItem()
                 {
-                    Text = "Недоступен",
+                    Text = "Недоступены",
                     Value = "4"
                 },
             };
@@ -180,6 +179,49 @@ namespace HotelEpam.Controllers
             ViewData["RoomClassItems"] = GetClassRoomItems(rooms);
 
             return View(rooms);
+        }
+
+        public ActionResult PartialRooms(FormCollection form)
+        {
+            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> currentRooms = new List<Room>();
+            int roomTypeNumber = 0;
+
+
+            switch (form["RoomItems"])
+            {
+                case "1":
+                    roomTypeNumber = 1;
+                    currentRooms = rooms.Where(r =>
+                            r.Bookings.Where(b => b.DateStart <= DateTime.Now && b.DateEnd > DateTime.Now)
+                                .Select(rn => rn.RoomNumber).ToList().Contains(r.Numder) == false && r.Availability)
+                        .ToList();
+                    break;
+                case "2":
+                    roomTypeNumber = 2;
+                    currentRooms = rooms.Where(r =>
+                        r.Bookings.Where(b => b.DateStart <= DateTime.Now && b.DateEnd > DateTime.Now)
+                            .Select(rn => rn.RoomNumber).ToList().Contains(r.Numder) && r.Availability).ToList();
+                    break;
+                case "3":
+                    roomTypeNumber = 3;
+                    currentRooms = rooms.Where(r =>
+                        r.Bookings.Where(b => b.DateStart > DateTime.Now)
+                            .Select(rn => rn.RoomNumber).ToList().Contains(r.Numder) && r.Availability).ToList();
+                    break;
+                case "4":
+                    roomTypeNumber = 4;
+                    currentRooms = rooms.Where(r => r.Availability == false).ToList();
+                    break;
+            }
+
+            ViewData["RoomTypeNumber"] = roomTypeNumber;
+            return View(currentRooms);
+        }
+
+        public ActionResult BookingRoom()
+        {
+            return View();
         }
     }
 }

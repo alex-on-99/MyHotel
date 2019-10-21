@@ -1,15 +1,19 @@
 ﻿@model IEnumerable<ServiceLibrary.Room>
 
 @{
-    ViewBag.Title = "AllRooms";
+    Layout = "~/Views/Shared/HotelLayout.cshtml";
     List<int> roomClassItems = Model.Select(m => m.ClassRoomId).Distinct().ToList();
 }
 
 <h2>AllRooms</h2>
-<div>
-    @Html.Label("RoomItems", "Тип номера")
-    @Html.DropDownList("RoomItems", ViewData["RoomItems"] as IEnumerable<SelectListItem>)
-</div>
+@using (Ajax.BeginForm("PartialRooms", new AjaxOptions {UpdateTargetId = "showing-rooms"}))
+{
+    <div>
+        @Html.Label("RoomItems", "Тип номера")
+        @Html.DropDownList("RoomItems", ViewData["RoomItems"] as IEnumerable<SelectListItem>)
+        <input type="submit" value="Искать"/>
+    </div>
+}
 
 <div id="showing-rooms">
 

@@ -146,11 +146,18 @@ namespace ServiceLibrary
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
-                Booking booking = ctx.Bookings.FirstOrDefault(b => b.Id == bookingId);
-                booking.RoomNumber = roomNumber;
-                booking.BookingStatusId = 2;
-                ctx.Entry(booking).State = EntityState.Modified;
-                ctx.SaveChanges();
+                try
+                {
+                    Booking booking = ctx.Bookings.FirstOrDefault(b => b.Id == bookingId);
+                    booking.RoomNumber = roomNumber;
+                    booking.BookingStatusId = 2;
+                    ctx.Entry(booking).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }

@@ -1,0 +1,77 @@
+﻿@using ServiceLibrary
+@model IEnumerable<ServiceLibrary.Room>
+
+@helper GetRooms(IEnumerable<ServiceLibrary.Room> rooms)
+{
+    <table>
+        <tr>
+            <th>Номер</th>
+            <th>Вместимость</th>
+            <th>Класс</th>
+            <th>Доступ</th>
+        </tr>
+        @foreach (Room room in rooms)
+        {
+            <tr>
+                <td>@room.Numder</td>
+                <td>@room.CountOfPlaces</td>
+                <td>@room.ClassRoom.Name</td>
+                @if (room.Availability)
+                {
+                    <td>Доступна</td>
+                }
+                else
+                {
+                    <td>Недоступна</td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+@if ((int) ViewData["RoomTypeNumber"] == 1)
+{
+    <h2>Свободные номера</h2>
+    @GetRooms(Model)
+}
+else if ((int) ViewData["RoomTypeNumber"] == 2)
+{
+    <h2>Занятые номера номера</h2>
+    @GetRooms(Model)
+}
+else if ((int) ViewData["RoomTypeNumber"] == 3)
+{
+    <h2>Забронированные номера</h2>
+
+    foreach (Room room in Model)
+    {
+        <div>
+            <span>@room.Numder</span>
+            <span>@room.CountOfPlaces</span>
+            <span>@room.ClassRoom.Name</span>
+        </div>
+        <table>
+            <tr>
+                <tr>
+                    <th>Дата приезда</th>
+                    <th>Дата отъезда</th>
+                </tr>
+                @{
+                    List<Booking> bookings = room.Bookings.Where(b => b.DateStart > DateTime.Now).ToList();
+                }
+                @foreach (Booking booking in bookings)
+                {
+                    <tr>
+                        <td>@booking.DateStart</td>
+                        <td>@booking.DateEnd</td>
+                    </tr>
+                }
+            </tr>
+        </table>
+    }
+}
+else if ((int) ViewData["RoomTypeNumber"] == 4)
+{
+    <h2>Недоступные номера</h2>
+    @GetRooms(Model)
+}
