@@ -1,20 +1,30 @@
 ﻿@model IEnumerable<ServiceLibrary.Room>
 
 @{
-    Layout = "~/Views/Shared/HotelLayout.cshtml";
-    List<int> roomClassItems = Model.Select(m => m.ClassRoomId).Distinct().ToList();
+    Layout = "~/Views/Shared/ManagerLayout.cshtml";
 }
-
-<h2>AllRooms</h2>
-@using (Ajax.BeginForm("PartialRooms", new AjaxOptions {UpdateTargetId = "showing-rooms"}))
-{
-    <div>
-        @Html.Label("RoomItems", "Тип номера")
-        @Html.DropDownList("RoomItems", ViewData["RoomItems"] as IEnumerable<SelectListItem>)
-        <input type="submit" value="Искать"/>
+<section class="ml-4 ">
+    <h2>Все коматы отеля</h2>
+    <div class="col-6 mt-4 ml-4">
+        @using (Ajax.BeginForm("PartialRooms", new AjaxOptions
+        {
+            UpdateTargetId = "showing-rooms",
+            LoadingElementId = "loading-rooms",
+            LoadingElementDuration = 1000
+        }))
+        {
+            <div class="form-group row">
+                @Html.Label("RoomItems", "Номера", new {@class = "col-3 standart-form-text pl-5"})
+                @Html.DropDownList("RoomItems", ViewData["RoomItems"] as IEnumerable<SelectListItem>, new {@class = "form-control col-4 mr-2"})
+                <input class="btn btn-success" type="submit" value="Искать"/>
+            </div>
+        }
     </div>
-}
 
-<div id="showing-rooms">
+    <div id="loading-rooms" class="loading-block">
+        <p>Идет загрузка...</p>
+    </div>
+</section>
 
-</div>
+<section class="container col-8" id="showing-rooms">
+</section>

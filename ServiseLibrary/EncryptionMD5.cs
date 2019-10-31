@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace ServiceLibrary
 {
+    // Class for data encryption.
     public static class EncryptionMD5
     {
-        // Logic of user's password encryption.
+        // Logic of user's password encryption with MD5.
         public static string Encript(string input)
         {
             var strb = new StringBuilder();

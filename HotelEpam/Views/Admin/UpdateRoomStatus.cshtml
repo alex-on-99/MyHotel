@@ -1,0 +1,24 @@
+﻿@using ServiceLibrary
+@model IEnumerable<ServiceLibrary.Room>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<section class="room-section">
+    <h2 class="text-center">Обновление статуса комнат</h2>
+    <div class="row justify-content-center mt-3">
+
+        @foreach (Room room in Model)
+        {
+            <div class="col-7 text-center mb-3">
+                @using (Html.BeginForm("ProcessingOfRoomStatusUpdating", "Admin"))
+                {
+                    @Html.TextBoxFor(model => room.Numder, new {@readonly = "readonly", @class = "form-check-label text-center col-2 mr-3"})
+                    @Html.CheckBoxFor(model => room.Availability, new {@class = "mr-4"})
+                    <input class="btn btn-success col-2 " type="submit" value="подтвердить"/>
+                }
+            </div>
+        }
+
+    </div>
+</section>

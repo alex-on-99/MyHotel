@@ -1,29 +1,31 @@
 ﻿@model HotelEpam.Models.UserAuthorization
 
 @{
-    Layout = "~/Views/Shared/HotelLayout.cshtml";
+    Layout = "~/Views/Shared/AccountLayout.cshtml";
 }
 
-<h2>Authorization</h2>
+<section id="authorize-section" class="row align-items-center justify-content-center">
+    <div class="col-4 text-light transparency-block pt-3 pb-2 mb-5 rounded">
+        <h3 class="h3 text-center mb-3">Авторизация</h3>
+        @using (@Html.BeginForm())
+        {
+            <div class="row form-group justify-content-center">
+                @Html.TextBoxFor(model => model.Login, new {@class = "form-control col-8", placeholder = "Логин"})
+            </div>
+            <div class="row form-group justify-content-center">
+                @Html.TextBoxFor(model => model.Password, new {type = "password", @class = "form-control col-8", placeholder = "Пароль"})
+            </div>
+            <div class="row form-group justify-content-center">
+                @Html.ValidationMessage("AuthorizationValidationError", new {@class = "validation-error-text col-10 text-center"})
+            </div>
+            <div class="row form-group justify-content-center">
+                <input class="btn btn-success col-5" type="submit" value="Войти"/>
+            </div>
+        }
 
-@using (@Html.BeginForm())
-{
-    <div>
-        @Html.LabelFor(model => model.Login)
-        @Html.EditorFor(model => model.Login)
+        <div class="col-12 text-center">
+            Если вы ещё не зарегистрированы в системе перейдите на страницу
+            @Html.ActionLink("Регистрации", "Registration",new{},new{@class="badge badge-light text-dark"})
+        </div>
     </div>
-    <div>
-
-        @Html.LabelFor(model => model.Password)
-        @Html.EditorFor(model => model.Password)
-    </div>
-
-    @Html.ValidationMessage("AuthorizationValidationError")
-
-    <input type="submit" value="Войти" />
-}
-
-<span>
-    Если вы ещё не зарегистрированы в системе перейдите на страницу
-    @Html.ActionLink("Регистрации", "Registration")
-</span>
+</section>

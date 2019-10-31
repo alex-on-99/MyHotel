@@ -1,0 +1,36 @@
+﻿@model ServiceLibrary.Room
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<section class="room-section">
+    <h2 class="text-center">Создание комнаты</h2>
+    <div class="row justify-content-center">
+        <div id="creating-room-form" class="col-5 border">
+            @using (Html.BeginForm())
+            {
+                <div class="form-group row pt-2">
+                    @Html.LabelFor(model => model.Numder, new {@class = "col-4"})
+                    @Html.TextBoxFor(model => model.Numder, new {@class = "col-7 form-control"})
+                    <div class="text-right col-11">
+                        @Html.ValidationMessageFor(model => model.Numder, "", new {@class = "validation-error-text"})
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.CountOfPlaces, new {@class = "col-4"})
+                    @Html.DropDownListFor(model => model.CountOfPlaces, ViewData["RoomCountOfPlacesItems"] as IEnumerable<SelectListItem>, new {@class = "col-7 form-control"})
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ClassRoomId, "Класс номера", new {@class = "col-4"})
+                    @Html.DropDownListFor(model => model.ClassRoomId, ViewData["ClassRoomItems"] as IEnumerable<SelectListItem>, new {@class = "col-7 form-control"})
+                </div>
+
+                <div class="row justify-content-center">
+                    <input class="btn btn-success col-2 " type="submit" value="Создать"/>
+                </div>
+            }
+        </div>
+    </div>
+</section>

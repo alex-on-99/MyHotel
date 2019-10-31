@@ -1,0 +1,50 @@
+﻿@using ServiceLibrary
+@model IEnumerable<ServiceLibrary.Booking>
+
+@{
+    Layout = "~/Views/Shared/HotelLayout.cshtml";
+}
+
+<article>
+    <h2 class="h2 ml-5 mt-3">Оплата проживания</h2>
+    <h4 class="h4 ml-5 mt-3">
+        Для оплаты проживания переведите суму из колонки <mark>"цена"</mark> 
+        на карту <span id="card-text" class="badge badge-success">Visa: 5168233223325665</span> до даты указаной в колонке <mark>"Дата оплаты".</mark><br/>
+        При возникновении вопросов или отмены бронирования позвоните на номер указанный внизу страницы.
+    </h4>
+
+    <div class="row justify-content-center">
+        <table id="user-table" class="col-11 table table-hover mt-4">
+            <thead>
+            <tr class="bg-dark text-light">
+                <th class="text-center" scale="col">Номер комнаты</th>
+                <th class="text-center" scale="col">Количество жильцов</th>
+                <th class="text-center" scale="col">Класс апартаментов</th>
+                <th class="text-center" scale="col">Дата приезда</th>
+                <th class="text-center" scale="col">Дата отъезда</th>
+                <th class="text-center" scale="col">Цена</th>
+                <th class="text-center" scale="col">Дата оплаты</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach (Booking booking in Model)
+            {
+                <tr class="bg-light">
+                    <td class="text-center" scale="row">@booking.RoomNumber</td>
+                    <td class="text-center">@booking.Room.CountOfPlaces</td>
+                    <td class="text-center">@booking.Room.ClassRoom.Name</td>
+                    <td class="text-center">@booking.DateStart.ToString("d")</td>
+                    <td class="text-center">@booking.DateEnd.ToString("d")</td>
+                    <td class="text-center bg-warning">
+                        @ComputationLogic.GetAccommodationPrice(@booking.Room.ClassRoom.Price, @booking.Room.CountOfPlaces, @booking.DateStart, @booking.DateEnd)
+                    </td>
+                    <td class="text-center bg-warning">
+                        @ComputationLogic.LastDate(@booking.DateBooking, @booking.DateStart).ToString("g")
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</article>

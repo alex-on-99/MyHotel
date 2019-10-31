@@ -82,3 +82,6 @@ D:\epam\HotelEpam\HotelEpam\bin\ServiceLibrary.pdb
 D:\epam\HotelEpam\HotelEpam\bin\ServiceLibrary.dll.config
 D:\epam\HotelEpam\HotelEpam\bin\System.Web.Providers.dll
 D:\epam\HotelEpam\HotelEpam\bin\System.Web.Providers.xml
+D:\epam\HotelEpam\HotelEpam\bin\NLog.config
+D:\epam\HotelEpam\HotelEpam\bin\NLog.dll
+D:\epam\HotelEpam\HotelEpam\bin\NLog.xml

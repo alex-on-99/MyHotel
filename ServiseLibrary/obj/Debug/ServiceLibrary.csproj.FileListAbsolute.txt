@@ -11,3 +11,6 @@ D:\epam\HotelEpam\ServiseLibrary\obj\Debug\ServiceLibrary.dll
 D:\epam\HotelEpam\ServiseLibrary\obj\Debug\ServiceLibrary.pdb
 D:\epam\HotelEpam\ServiseLibrary\bin\Debug\System.Web.Providers.dll
 D:\epam\HotelEpam\ServiseLibrary\bin\Debug\System.Web.Providers.xml
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\NLog.config
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\NLog.dll
+D:\epam\HotelEpam\ServiseLibrary\bin\Debug\NLog.xml

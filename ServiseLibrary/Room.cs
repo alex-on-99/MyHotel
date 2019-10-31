@@ -13,7 +13,13 @@ namespace ServiceLibrary
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Номер комнаты")]
+        [Required(ErrorMessage = "Поле \"Номер комнаты\" не заполнено")]
+        [RegularExpression("^[1-9][0-9]{2}$",
+            ErrorMessage = "Номер указан некорректно")]
         public int Numder { get; set; }
+
+        [Display(Name = "Количество мест")]
         public int CountOfPlaces { get; set; }
         public int ClassRoomId { get; set; }
         public bool Availability { get; set; }

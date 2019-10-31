@@ -12,7 +12,13 @@ namespace ServiceLibrary
     {
         [Display(Name = "Id")]
         public int Id { get; set; }
+        
+        [Display(Name = "Дата приезда")]
+        [DataType(DataType.Date)]
         public DateTime DateStart { get; set; }
+        
+        [Display(Name = "Дата отъезда")]
+        [DataType(DataType.Date)]
         public DateTime DateEnd { get; set; }
         public DateTime DateBooking { get; set; }
         public int BookingStatusId { get; set; }

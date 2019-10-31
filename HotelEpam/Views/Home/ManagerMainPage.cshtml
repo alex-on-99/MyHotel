@@ -1,7 +1,25 @@
 ﻿@{
-    Layout = "~/Views/Shared/HotelLayout.cshtml";
+    Layout = "~/Views/Shared/ManagerLayout.cshtml";
 }
 
-<h2>ManagerMainPage</h2>
+    <section class="container">
+        <div class="pt-5">
+            <div class="row justify-content-center">
+                <h1 class="h1 ml-4 col-8 text-center">Главная страница менеджера</h1>
+            </div>
+            <div class="row pt-2 justify-content-center">
+                <h3 class="h3 col-10 text-center">Добро пожаловать @User.Identity.Name. Можете приступать к роботе.</h3>
+            </div>
+        </div>
 
-@Html.ActionLink("Не обработанные заявки", "NotProcessedRequests")
+        <div class="row justify-content-center pb-5 mt-5 mr-4">
+            <div class="col-7">
+                <ul class="list-group list-unstyled">
+                    <li class="list-group-item">@Html.ActionLink("Не обработанные заявки", "NotProcessedRequests")</li>
+                    <li class="list-group-item">@Html.ActionLink("Комнаты", "AllRooms")</li>
+                    <li class="list-group-item">@Html.ActionLink("Бронирования", "ActuallyBookings")</li>
+                    <li class="list-group-item">@Html.ActionLink("Выход", "Exit", "Home", new { }, new { @class = "" })</li>
+                </ul>
+            </div>
+        </div>
+    </section>

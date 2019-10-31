@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLibrary
 {
+    // First initialization of database
     public class HotelContextInitializer
         : CreateDatabaseIfNotExists<HotelContext>
     {
@@ -32,8 +33,7 @@ namespace ServiceLibrary
                 new BookingStatus(){Id = 1,Name = "В обработке"},
                 new BookingStatus(){Id = 2,Name = "Обработан"},
                 new BookingStatus(){Id = 3,Name = "Оплачен"},
-                new BookingStatus(){Id = 4,Name = "Отменён"},
-                new BookingStatus(){Id = 5,Name = "Проссрочен"},
+                new BookingStatus(){Id = 4,Name = "Проссрочен"},
             };
 
 

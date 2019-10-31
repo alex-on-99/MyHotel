@@ -1,0 +1,81 @@
+﻿@using ServiceLibrary
+@model IEnumerable<ServiceLibrary.Booking>
+
+@{
+    Layout = "~/Views/Shared/ManagerLayout.cshtml";
+}
+
+<div id="ajax-request-result"></div>
+
+<article class="container">
+
+    <h2 class="h2 mt-3">Бронирования и проживания клиентов</h2>
+
+    <table class="col-11 table table-hover mt-4">
+        <thead>
+        <tr class="bg-dark text-light">
+            <th class="text-center" scale="col">Id</th>
+            <th class="text-center" scale="col">Логин</th>
+            <th class="text-center" scale="col">Комната</th>
+            <th class="text-center" scale="col">Приезд</th>
+            <th class="text-center" scale="col">Отъезд</th>
+            <th class="text-center" scale="col">Цена</th>
+            <th class="text-center" scale="col">Оплата до</th>
+        </tr>
+        </thead>
+
+        @foreach (Booking booking in Model)
+        {
+            <tr class="bg-light">
+                <td scale="row">@booking.Id</td>
+                <td>@booking.User.Login</td>
+                <td>@booking.RoomNumber</td>
+                <td>@booking.DateStart.ToString("d")</td>
+                <td>@booking.DateEnd.ToString("d")</td>
+                @if (booking.BookingStatusId == 2)
+                {
+                    <td>
+                        @ComputationLogic.GetAccommodationPrice(booking.Room.ClassRoom.Price,
+                            booking.Room.CountOfPlaces, booking.DateStart, booking.DateEnd)
+                    </td>
+                }
+                else if (booking.BookingStatusId == 3)
+                {
+                    <td class="bg-success">
+                        @ComputationLogic.GetAccommodationPrice(booking.Room.ClassRoom.Price,
+                            booking.Room.CountOfPlaces, booking.DateStart, booking.DateEnd)
+                    </td>
+                }
+                else
+                {
+                    <td class="bg-warning">
+                        @ComputationLogic.GetAccommodationPrice(booking.Room.ClassRoom.Price,
+                            booking.Room.CountOfPlaces, booking.DateStart, booking.DateEnd)
+                    </td>
+                }
+                <td>@ComputationLogic.LastDate(booking.DateBooking, booking.DateStart).ToString("g")</td>
+                <td>
+                    @using (Ajax.BeginForm("ReportUser", "Home", new {id = booking.UserId},
+                        new AjaxOptions {Confirm = "Подтвердтверждение жалобы на пользователя", UpdateTargetId = "ajax-request-result"}))
+                    {
+                        <input class="btn btn-outline-danger" type="submit" value="Пожаловатся"/>
+                    }
+                </td>
+                <td>
+                    @using (Ajax.BeginForm("ConfirmPayment", "Home", new {id = booking.Id},
+                        new AjaxOptions {Confirm = "Подтверждение оплаты", UpdateTargetId = "res"}))
+                    {
+                        <input class="btn btn-outline-success" type="submit" value="Подтвердить"/>
+                    }
+                </td>
+                <td>
+                    @using (Ajax.BeginForm("DeleteBooking", "Home", new {id = booking.Id},
+                        new AjaxOptions {Confirm = "Подттвердить удаление", UpdateTargetId = "res"}))
+                    {
+                        <input class="close text-danger bg-dark rounded-circle pb-2" type="submit" value="x"/>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</article>

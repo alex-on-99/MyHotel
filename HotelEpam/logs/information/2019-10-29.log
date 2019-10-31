@@ -1,0 +1,30 @@
+2019-10-29 01:06:45.0177 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-10-29 01:06:45.0984 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-10-29 01:06:47.8325 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-10-29 01:06:47.8325 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-10-29 01:06:51.4304 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-10-29 01:06:51.4384 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-10-29 01:06:59.1081 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-10-29 01:06:59.1170 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-10-29 01:06:59.1250 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-10-29 23:10:49.3778 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-10-29 23:10:49.4782 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-10-29 23:10:49.4782 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha выполнил вход на сайт 
+
+2019-10-29 23:11:00.0783 | HotelEpam.Controllers.AdminController.UpdateRoomStatus | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-10-29 23:11:04.7887 | HotelEpam.Controllers.AdminController.UpdateRoomStatus | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-10-29 23:11:49.8097 | HotelEpam.Controllers.AdminController.UpdateRoomStatus | DEBUG | Обращение к базе данных, получение комнат 
+

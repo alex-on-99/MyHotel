@@ -3,36 +3,46 @@
 @{
     Layout = "~/Views/Shared/HotelLayout.cshtml";
 }
-
-<h2>RoomReservation</h2>
-
-@using (Html.BeginForm())
-{
-
-    <div>
-        @Html.Label("RoomClass", "Класс апартаментов")
-        @Html.DropDownList("RoomClass", ViewData["RoomClassItems"] as IEnumerable<SelectListItem>)
-
+<section class="container">
+    <div class="row justify-content-center mt-4 mb-4">
+        <h3 class="h3 text-center">
+            Здесь вы можете оставить заявление на проживание. Выберите подходящий класс апартаментов, количество жильцов и даты проживания.<br/>
+            Администратор обработает ваше заявление и выдаст вам команту. Следите за обновлениями на странице <mark>"Мои бронирования"</mark>.
+        </h3>
     </div>
-    <div>
-        @Html.Label("CountOfPlaces", "Класс апартаментов")
-        @Html.DropDownList("CountOfPlaces", ViewData["CountOfPlacesItems"] as IEnumerable<SelectListItem>)
-    </div>
+    <article class="row justify-content-center">
 
-    <div>
-        @Html.Label("StartDate", "Дата приезда в отель")
-        @Html.TextBox("StartDate",null,new{@type = "date"})
-    </div>
+        <div class="col-6 bg-light">
+            <div class="row justify-content-center align-items-center">
+                <h3 class="h3 pt-4 pb-4">Оставить заявление</h3>
+                <div class="container-fluid">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group row justify-content-center">
+                            @Html.Label("RoomClass", "Класс апартаментов", new { @class = "col-5" })
+                            @Html.DropDownList("RoomClass", ViewData["RoomClassItems"] as IEnumerable<SelectListItem>, new { @class = "col-5 form-control" })
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            @Html.Label("CountOfPlaces", "Количество жильцов", new { @class = "col-5" })
+                            @Html.DropDownList("CountOfPlaces", ViewData["CountOfPlacesItems"] as IEnumerable<SelectListItem>, new { @class = "col-5 form-control" })
+                        </div>
 
-    <div>
-        @Html.Label("EndDate", "Дата отъезда")
-        @Html.TextBox("EndDate", null, new { @type = "date" })
-    </div>
+                        <div class="form-group row justify-content-center">
+                            @Html.Label("StartDate", "Дата приезда в отель", new { @class = "col-5" })
+                            @Html.TextBox("StartDate", null, new { @type = "date", @class = "col-5 form-control" })
+                        </div>
 
-    @Html.ValidationMessage("DateValidationError")
-    <input type="submit" value="Отправить заявку" />
-    
-    <div>
-        <span>@ViewBag.SuccessMessage</span>
-    </div>
-}
+                        <div class="form-group row justify-content-center">
+                            @Html.Label("EndDate", "Дата отъезда", new { @class = "col-5" })
+                            @Html.TextBox("EndDate", null, new { @type = "date", @class = "col-5 form-control" })
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            @Html.ValidationMessage("DateValidationError", new {@class="validation-error-text col-12 text-center"})
+                            <input type="submit" class="btn btn-success mt-3" value="Отправить заявку" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

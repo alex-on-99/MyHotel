@@ -1,0 +1,39 @@
+﻿@model ServiceLibrary.Booking
+
+@{
+    Layout = "~/Views/Shared/HotelLayout.cshtml";
+}
+
+<section id="booking-room-section" class="row justify-content-center">
+    <div class="col-12 text-center mt-4 mb-3">
+        <h2>Здесь вы можете забронировать комнату</h2>
+    </div>
+    <div class="col-3">
+        @using (Ajax.BeginForm("FreeRoomsForBooking", new AjaxOptions
+        {
+            UpdateTargetId = "all-rooms-block",
+            LoadingElementId = "loading-rooms",
+            LoadingElementDuration = 1000
+        }))
+        {
+            <div class="row form-group">
+                @Html.LabelFor(m => m.DateStart, new {@class = "col-6"})
+                @Html.TextBoxFor(m => m.DateStart, new {@class = "col-6 text-center form-control", type = "date"})
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(m => m.DateEnd, new {@class = "col-6"})
+                @Html.TextBoxFor(m => m.DateEnd, new {@class = "col-6 text-center form-control", type = "date"})
+            </div>
+            <div class="col-12 text-center">
+                <input type="submit" class="btn btn-success col-7 text-center" value="Подтвердить"/>
+            </div>
+        }
+    </div>
+</section>
+
+<section id="loading-rooms" class="loading-block row justify-content-center">
+    <p>Идёт загрузка...</p>
+</section>
+
+<div id="all-rooms-block"></div>

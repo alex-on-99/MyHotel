@@ -2,27 +2,41 @@
 @model IEnumerable<ServiceLibrary.Booking>
 
 @{
-    Layout = "~/Views/Shared/HotelLayout.cshtml";
+    Layout = "~/Views/Shared/ManagerLayout.cshtml";
 }
 
-<h2>NotProcessedRequests</h2>
-
-
-@foreach (Booking booking in Model)
-{
-    <div>
-        @using (Html.BeginForm("ProcessingRequest","Home"))
-        {<div>
-             @Html.LabelFor(b => booking.Id)
-             @Html.TextBoxFor(b => booking.Id, new {@readonly = true})
-         </div>
-            @Html.TextBoxFor(b => booking.Id, new { @readonly = true })
-            @Html.TextBoxFor(b => booking.RoomRequest.CountOfPlaces,new { @readonly = true })
-            @Html.TextBoxFor(b => booking.RoomRequest.ClassRoom.Name, new { @readonly = true })
-            @Html.TextBoxFor(b => booking.DateStart, new { @readonly = true })
-            @Html.TextBoxFor(b => booking.DateEnd, new { @readonly = true })
-            @Html.DropDownListFor(b => booking.RoomNumber, ViewData["RoomNumberItems"] as IEnumerable<SelectListItem>)
-            <input type="submit"/>
-        }
-    </div>
-}
+<h2 class="pl-5 pt-3 mb-4">Не обработанные заявления</h2>
+<div class="container-fluid table-container">
+    <table class="table table-info table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="pl-4" scape="col">Id</th>
+                <th class="pl-4" scape="col">Количество</th>
+                <th class="pl-4" scape="col">Класс</th>
+                <th class="pl-4" scape="col">Приезд</th>
+                <th class="pl-4" scape="col">Отъезд</th>
+                <th scape="col">Номер</th>
+                <th scape="col">Подтверждение</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Booking booking in Model)
+            {
+                <tr>
+                    @using (Html.BeginForm("ProcessingRequest", "Home"))
+                    {
+                        <td scape="row">@Html.TextBoxFor(b => booking.Id, new { @readonly = true, @class = "text-center" })</td>
+                        <td>@Html.TextBoxFor(b => booking.RoomRequest.CountOfPlaces, new { @readonly = true, @class = "text-center" })</td>
+                        <td>@Html.TextBoxFor(b => booking.RoomRequest.ClassRoom.Name, new { @readonly = true, @class = "text-center" })</td>
+                        <td>@Html.TextBoxFor(b => booking.DateStart, new { @readonly = true, @class = "text-center" })</td>
+                        <td>@Html.TextBoxFor(b => booking.DateEnd, new { @readonly = true, @class = "text-center" })</td>
+                        <td>@Html.DropDownListFor(b => booking.RoomNumber, ViewData["RoomNumberItems"] as IEnumerable<SelectListItem>)</td>
+                        <td>
+                            <input class="btn btn-outline-success" type="submit" />
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

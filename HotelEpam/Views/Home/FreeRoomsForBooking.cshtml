@@ -1,0 +1,51 @@
+﻿@using ServiceLibrary
+@model IEnumerable<ServiceLibrary.Room>
+
+@{
+    Layout = null;
+    DateTime startDate = Convert.ToDateTime(ViewData["StartDate"]);
+    DateTime endDate = Convert.ToDateTime(ViewData["EndDate"]);
+}
+
+<section id="free-rooms-section" class="row justify-content-center mt-3">
+    <div class="col-10 text-center">
+        @if (Model != null)
+        {
+            foreach (Room room in Model)
+            {
+                int summaryPrice = @ComputationLogic.GetAccommodationPrice(room.ClassRoom.Price, room.CountOfPlaces, startDate, endDate);
+
+                <div class="row mb-3 mt-2 free-rooms-block rounded">
+                    <div class="mr-5 col-2 mt-2">Номер комнаты: <span>@room.Numder</span></div>
+                    <div class="mr-5 col-3 mt-2">
+                        <span>Количество мест: @room.CountOfPlaces</span>
+                    </div>
+                    <div class="mr-5 col-3 mt-2">
+                        <span>Класс комнаты: @room.ClassRoom.Name</span>
+                    </div>
+                    <div class="mr-5 col-1 mt-2">
+                        <span>
+                            Цена: @summaryPrice.ToString()
+                        </span>
+                    </div>
+                    <div class="mt-2 mb-2">
+                        @using (Ajax.BeginForm("BookingRoomByUser",
+                            new { roomNumber = room.Numder }, new AjaxOptions
+                            {
+                                Confirm = "Подтвердите ваш выбор: \n " +
+                                          $"Проживание с {startDate} по {endDate}. \n" +
+                                          $"В номере {room.Numder} класса \"{room.ClassRoom.Name}\" на {room.CountOfPlaces} человек. \n" +
+                                          $"Цена проживания: {summaryPrice}."
+                            }))
+                        {
+                            <input type="submit" class="btn btn-success" value="&#10003; " />
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-5 text-center">
+        @Html.ValidationSummary("", new {@class = "validation-error-text"})
+    </div>
+</section>

@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="container">
+    <div class="pt-5">
+        <div class="row justify-content-center">
+            <h1 class="h1 ml-4 col-8 text-center">Главная страница администратора</h1>
+        </div>
+        <div class="row pt-2 justify-content-center">
+            <h3 class="h3 col-10 text-center">Добро пожаловать @User.Identity.Name. Можете приступать к роботе.</h3>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center pb-5 mt-5 mr-4">
+        <div class="col-7">
+            <ul class="list-group list-unstyled">
+                <li class="list-group-item">@Html.ActionLink("Добавление комнат", "CreatingRoom")</li>
+                <li class="list-group-item">@Html.ActionLink("Обновление доступности комнат", "UpdateRoomStatus")</li>
+                <li class="list-group-item">@Html.ActionLink("Выход", "Exit", "Home")</li>
+            </ul>
+        </div>
+    </div>
+</section>
