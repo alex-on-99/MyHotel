@@ -20,6 +20,7 @@ namespace HotelEpam.Controllers
 
         public ActionResult CreatingRoom()
         {
+
             IEnumerable<SelectListItem> roomCountOfPlacesItems = FormingSelectItems.GetRoomCountOfPlacesItems();
             IEnumerable<SelectListItem> classRoomItems = FormingSelectItems.GetClassRoomItems();
 
@@ -32,8 +33,10 @@ namespace HotelEpam.Controllers
         [HttpPost]
         public ActionResult CreatingRoom(Room room)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, получение комнат");
-            Room existedRoom = CommunicationWithDataBase.GetRoomByNumber(room.Numder);
+            Room existedRoom = repository.GetRoomByNumber(room.Numder);
 
             if (existedRoom != null)
             {
@@ -44,7 +47,7 @@ namespace HotelEpam.Controllers
             {
                 logger.Debug($"Обращение к базе данных, для добавления новой комнаты");
                 logger.Info($"В базу данных добавлена новая комната");
-                CommunicationWithDataBase.CreateRoom(room.Numder,room.ClassRoomId,room.CountOfPlaces);
+                repository.CreateRoom(room.Numder,room.ClassRoomId,room.CountOfPlaces);
                 return RedirectToAction("AdminMainPage");
             }
 
@@ -60,17 +63,21 @@ namespace HotelEpam.Controllers
 
         public ActionResult UpdateRoomStatus()
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, получение комнат");
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = repository.GetAllRooms();
 
             return View(rooms);
         }
 
         public ActionResult ProcessingOfRoomStatusUpdating(Room room)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, для обновления статуса комнаты");
             logger.Info($"Стату комнаты {room.Numder} обновлен");
-            CommunicationWithDataBase.UpdateRoomAvailability(room.Numder,room.Availability);
+            repository.UpdateRoomAvailability(room.Numder,room.Availability);
             return RedirectToAction("UpdateRoomStatus");
         }
     }

@@ -24,6 +24,8 @@ namespace HotelEpam.Controllers
         [HttpPost]
         public ActionResult Registration(UserRegistration user)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug("Попытка создания нового пользователя");
 
             if (user.Password != null)
@@ -60,7 +62,7 @@ namespace HotelEpam.Controllers
                 }
 
                 logger.Debug($"Обращение к базе данных для проврки уникальности логина {user.Login}");
-                if (CommunicationWithDataBase.GetUserByLogin(user.Login.ToLower()) != null)
+                if (repository.GetUserByLogin(user.Login.ToLower()) != null)
                 {
                     ModelState.AddModelError(nameof(user.Login), "Пользователь с таким логином уже существует");
                 }
@@ -69,7 +71,7 @@ namespace HotelEpam.Controllers
             if (user.Email != null)
             {
                 logger.Debug($"Обращение к базе данных для проврки уникальности email {user.Email}");
-                if (CommunicationWithDataBase.GetUserByEmail(user.Email) != null)
+                if (repository.GetUserByEmail(user.Email) != null)
                 {
                     ModelState.AddModelError(nameof(user.Email), "Email используется в системе");
                 }
@@ -79,7 +81,7 @@ namespace HotelEpam.Controllers
             {
                 try
                 {
-                    CommunicationWithDataBase.CreateUser(user.FirstName.ToLower(), user.SecondName.ToLower(),
+                    repository.CreateUser(user.FirstName.ToLower(), user.SecondName.ToLower(),
                         user.Login.ToLower(), user.Email, user.Password, user.DateOfBirth);
                 }
                 catch
@@ -105,8 +107,10 @@ namespace HotelEpam.Controllers
         [HttpPost]
         public ActionResult Authorization(UserAuthorization model)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug("Обращение к базе данных для получения данных о пользователе");
-            User user = CommunicationWithDataBase.GetUserByLogin(model.Login?.ToLower());
+            User user = repository.GetUserByLogin(model.Login?.ToLower());
 
             if (user?.BlockDate > DateTime.Now)
             {
@@ -118,7 +122,7 @@ namespace HotelEpam.Controllers
             {
                 ModelState.AddModelError("AuthorizationValidationError", "Логин или пароль некорректен");
             }
-            else if (CommunicationWithDataBase.CheckUserAuthorization(model.Login?.ToLower(), model?.Password))
+            else if (repository.CheckUserAuthorization(model.Login?.ToLower(), model?.Password))
             {
                 logger.Debug($"Обращение к базе данных для проверки подлиности данных авторизации");
                 if (model.Login == null)

@@ -8,44 +8,86 @@
 }
 
 <section id="free-rooms-section" class="row justify-content-center mt-3">
-    <div class="col-10 text-center">
-        @if (Model != null)
-        {
-            foreach (Room room in Model)
+    @if (Model != null)
+    {
+        <div class="row justify-content-between">
+            <div class="mr-5">
+                <select id="class-selector">
+                    <option value="noOption" selected="selected">Класс комнаты</option>
+                    <option value="Економ">Економ</option>
+                    <option value="Стандарт">Стандарт</option>
+                    <option value="Люкс">Люкс</option>
+                    <option value="Королевский">Королевский</option>
+                </select>
+            </div>
+            <div class="mr-5">
+                <select id="count-selector">
+                    <option value="noOption" selected="selected">Количество жильцов</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="mr-5">
+                <select id="sort-selector">
+                    <option value="noOption" selected="selected">Цена</option>
+                    <option value="up">По возрастанию</option>
+                    <option value="down">По убыванию</option>
+                </select>
+            </div>
+        </div>
+        <div id="free-rooms-block-list" class="col-10 text-center">
+            @foreach (Room room in Model)
             {
                 int summaryPrice = @ComputationLogic.GetAccommodationPrice(room.ClassRoom.Price, room.CountOfPlaces, startDate, endDate);
 
                 <div class="row mb-3 mt-2 free-rooms-block rounded">
                     <div class="mr-5 col-2 mt-2">Номер комнаты: <span>@room.Numder</span></div>
                     <div class="mr-5 col-3 mt-2">
-                        <span>Количество мест: @room.CountOfPlaces</span>
+                        <span>
+                            Количество мест:
+                            <span class="room-count-value">
+                                @room.CountOfPlaces
+                            </span>
+                        </span>
                     </div>
                     <div class="mr-5 col-3 mt-2">
-                        <span>Класс комнаты: @room.ClassRoom.Name</span>
+                        <span>
+                            Класс комнаты:
+                            <span class="room-class-value">
+                                @room.ClassRoom.Name
+                            </span>
+                        </span>
                     </div>
                     <div class="mr-5 col-1 mt-2">
                         <span>
-                            Цена: @summaryPrice.ToString()
+                            Цена:
+                            <span class="room-price-value">
+                                @summaryPrice.ToString()
+                            </span>
                         </span>
                     </div>
                     <div class="mt-2 mb-2">
                         @using (Ajax.BeginForm("BookingRoomByUser",
-                            new { roomNumber = room.Numder }, new AjaxOptions
-                            {
-                                Confirm = "Подтвердите ваш выбор: \n " +
-                                          $"Проживание с {startDate} по {endDate}. \n" +
-                                          $"В номере {room.Numder} класса \"{room.ClassRoom.Name}\" на {room.CountOfPlaces} человек. \n" +
-                                          $"Цена проживания: {summaryPrice}."
-                            }))
+                new { roomNumber = room.Numder }, new AjaxOptions
+                {
+                    Confirm = "Подтвердите ваш выбор: \n " +
+                              $"Проживание с {startDate} по {endDate}. \n" +
+                              $"В номере {room.Numder} класса \"{room.ClassRoom.Name}\" на {room.CountOfPlaces} человек. \n" +
+                              $"Цена проживания: {summaryPrice}."
+                }))
                         {
                             <input type="submit" class="btn btn-success" value="&#10003; " />
                         }
                     </div>
                 </div>
             }
-        }
-    </div>
+
+        </div>
+    }
     <div class="col-5 text-center">
-        @Html.ValidationSummary("", new {@class = "validation-error-text"})
+        @Html.ValidationSummary("", new { @class = "validation-error-text" })
     </div>
 </section>
+
+@Scripts.Render("~/scripts/hotel/main.js")

@@ -52,7 +52,9 @@ namespace HotelEpam
 
         public static IEnumerable<SelectListItem> GetClassRoomItems()
         {
-            List<ClassRoom> classRooms = CommunicationWithDataBase.GetRoomClasses();
+            IRepository repository = new CommunicationWithDataBase();
+
+            List<ClassRoom> classRooms = repository.GetRoomClasses();
 
             IEnumerable<SelectListItem> roomClassItems = classRooms.Select(
                 rc => new SelectListItem()
@@ -83,12 +85,7 @@ namespace HotelEpam
                 {
                     Text = "3",
                     Value = "3"
-                },
-                new SelectListItem()
-                {
-                    Text = "4",
-                    Value = "4"
-                },
+                }
             };
 
             return roomCountOfPlacesItems;

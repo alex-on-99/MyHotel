@@ -4,47 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="~/Content/custom-styles.css"/>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/Content/custom-styles.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <title>Hotel</title>
 </head>
 <body id="hotel-body">
 
-<header id="main-header" class="container-fluid row bg-dark align-items-center mx-0">
-    <div class="col-2 logo">
-        The Fantastical <br/> Hotel &#9733; &#9733; &#9733; &#9733;
-    </div>
-    <nav class="col-9">
-        <div class="row justify-content-between">
-            @Html.ActionLink("Главная", "Index", "Home")
-            @Html.ActionLink("Мои бронирования", "UserBookings", "Home")
-            @Html.ActionLink("Оставить заявление", "RoomReservation", "Home")
-            @Html.ActionLink("Бронирование", "BookingRoom", "Home")
+    <header id="main-header" class="container-fluid row bg-dark align-items-center mx-0">
+        <div class="col-2 logo">
+            The Fantastical <br /> Hotel &#9733; &#9733; &#9733; &#9733;
         </div>
-    </nav>
-    <div id="exit-block" class="col-1 align-items-start pt-2 pr-3">
-        <div class="row justify-content-end">
-            @Html.ActionLink("Выход", "Exit", "Home")
-        </div>
-    </div>
-</header>
+        <nav class="col-9">
+            <div class="row justify-content-between">
+                @Html.ActionLink("Главная", "Index", "Home")
+                @Html.ActionLink("Мои бронирования", "UserBookings", "Home")
+                @Html.ActionLink("Оставить заявление", "RoomReservation", "Home")
+                @Html.ActionLink("Бронирование", "BookingRoom", "Home")
+            </div>
+        </nav>
 
-<main id="hotel-main-content" class="container-fluid">
-    @RenderBody()
-</main>
 
-<footer id="main-footer" class="container-fluid bg-dark no-gutters">
-    <div id="footer-block" class="row align-items-end">
-        <div id="footer-copyright-block" class="col-12">
-            <div id="footer-copyright" class="row justify-content-center align-items-center">
-                © 2019 Copyright: My Hotel
+        @if (User.IsInRole("user"))
+        {
+            <div id="exit-block" class="col-1 align-items-start pt-2 pr-3">
+                <div class="row justify-content-end">
+                    @Html.ActionLink("Выход", "Exit", "Home")
+                </div>
+            </div>
+        }
+    </header>
+
+    <main id="hotel-main-content" class="container-fluid">
+        @RenderBody()
+    </main>
+
+    <footer id="main-footer" class="container-fluid bg-dark no-gutters">
+        <div id="footer-block" class="row align-items-end">
+            <div id="footer-main-row" class="row justify-content-center align-items-center">
+                <div class="col-6 text-center">
+                    Мы в социальных сетях:<br />
+                    <a href="https://www.instagram.com/sanya_kovalov/?hl=uk target=" _blank"">
+                        <img class="img-link" src="~/Content/icons/instagram.png" />
+                    </a>
+                    <a href="https://t.me/GlechikProduction" target="_blank">
+                        <img class="img-link" src="~/Content/icons/telegram.png" />
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    Контакты:<br />
+                    +380660459593
+                </div>
+            </div>
+            <div id="footer-copyright-block" class="col-12">
+                <div id="footer-copyright" class="row justify-content-center align-items-center">
+                    © 2019 Copyright: My Hotel
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
-@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

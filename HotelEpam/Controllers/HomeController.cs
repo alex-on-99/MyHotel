@@ -16,7 +16,6 @@ namespace HotelEpam.Controllers
     public class HomeController : Controller
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-
         public ActionResult Index()
         {
             if (User.IsInRole("manager"))
@@ -31,7 +30,7 @@ namespace HotelEpam.Controllers
             return View();
         }
 
-        // user sign out and him authorize cookies will be deleted
+        // User sign out and him authorize cookies will be deleted.
         public ActionResult Exit()
         {
             logger.Info($"Пользователь {User.Identity.Name} покинул систему");
@@ -49,8 +48,10 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "user")]
         public ActionResult RoomReservation()
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, получение комнат");
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = repository.GetAllRooms();
 
             ViewData["RoomClassItems"] = FormingSelectItems.GetRoomClassRoomItems(rooms);
             ViewData["CountOfPlacesItems"] = FormingSelectItems.GetCurrentRoomCountOfPlacesItems(rooms);
@@ -63,6 +64,8 @@ namespace HotelEpam.Controllers
         [HttpPost]
         public ActionResult RoomReservation(FormCollection form)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             int roomClassId = Convert.ToInt32(form["RoomClass"]);
             int countOfPlaces = Convert.ToInt32(form["CountOfPlaces"]);
             DateTime startDate = new DateTime();
@@ -92,13 +95,13 @@ namespace HotelEpam.Controllers
             {
                 logger.Debug($"Обращение к базе данных, создание запроса на поселение");
                 string userLogin = User.Identity.Name;
-                CommunicationWithDataBase.CreateRequest(userLogin, roomClassId, countOfPlaces, startDate, endDate);
+                repository.CreateRequest(userLogin, roomClassId, countOfPlaces, startDate, endDate);
                 logger.Info($"Пользователем создан новый запрос на поселение");
                 return RedirectToAction("Index");
             }
 
             logger.Debug($"Обращение к базе данных, получение комнат");
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = repository.GetAllRooms();
 
             ViewData["RoomClassItems"] = FormingSelectItems.GetRoomClassRoomItems(rooms);
             ViewData["CountOfPlacesItems"] = FormingSelectItems.GetCurrentRoomCountOfPlacesItems(rooms);
@@ -115,14 +118,16 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "manager")]
         public ActionResult NotProcessedRequests()
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, получение комнат");
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = repository.GetAllRooms();
 
             IEnumerable<SelectListItem> roomNumberItems = FormingSelectItems.GetRoomNumberItems(rooms);
             ViewData["RoomNumberItems"] = roomNumberItems;
 
             logger.Debug($"Обращение к базе данных, получение запросов на проживание");
-            List<Booking> bookings = CommunicationWithDataBase.GetBookingRequests();
+            List<Booking> bookings = repository.GetBookingRequests();
             var notProcessedBookings = bookings.Where(b => b.BookingStatusId == 1);
             return View(notProcessedBookings);
         }
@@ -131,8 +136,10 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "manager")]
         public ActionResult ProcessingRequest(Booking booking)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, обновление бронирования комнаты");
-            CommunicationWithDataBase.UpdateRoomInBooking(booking.Id, Convert.ToInt32(booking.RoomNumber));
+            repository.UpdateRoomInBooking(booking.Id, Convert.ToInt32(booking.RoomNumber));
             logger.Info($"Обновление бронирование с {booking.Id} выполнено успешно");
             return RedirectToAction("NotProcessedRequests");
         }
@@ -140,6 +147,8 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "manager")]
         public ActionResult AllRooms()
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             List<SelectListItem> roomItems = new List<SelectListItem>()
             {
                 new SelectListItem()
@@ -167,7 +176,7 @@ namespace HotelEpam.Controllers
             ViewData["RoomItems"] = roomItems;
 
             logger.Debug($"Обращение к базе данных, получение комнат");
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = repository.GetAllRooms();
             ViewData["RoomClassItems"] = FormingSelectItems.GetRoomClassRoomItems(rooms);
 
             return View(rooms);
@@ -176,8 +185,10 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "manager")]
         public ActionResult PartialRooms(FormCollection form)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, получение комнат");
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = repository.GetAllRooms();
             List<Room> currentRooms = new List<Room>();
             int roomTypeNumber = 0;
 
@@ -222,6 +233,8 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "user")]
         public ActionResult FreeRoomsForBooking(Booking booking)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             DateTime startDate = new DateTime();
             DateTime endDate = new DateTime();
             try
@@ -254,7 +267,7 @@ namespace HotelEpam.Controllers
             if (ModelState.IsValid)
             {
                 logger.Debug($"Обращение к базе данных, получение комнат сводных с {startDate} по {endDate} число");
-                List<Room> freeRooms = CommunicationWithDataBase.GetFreeRooms(startDate, endDate);
+                List<Room> freeRooms = repository.GetFreeRooms(startDate, endDate);
                 HttpCookie accommodationCookie = new HttpCookie("accommodation date");
 
                 try
@@ -281,6 +294,8 @@ namespace HotelEpam.Controllers
 
         public ActionResult BookingRoomByUser(int roomNumber)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             DateTime startDate = new DateTime();
             DateTime endDate = new DateTime();
 
@@ -304,7 +319,7 @@ namespace HotelEpam.Controllers
 
             string userLogin = User.Identity.Name;
             logger.Info($"Обращение к базе данных для создания нового бронирования");
-            CommunicationWithDataBase.CreateBooking(userLogin,roomNumber, startDate, endDate);
+            repository.CreateBooking(userLogin,roomNumber, startDate, endDate);
             logger.Info($"Бронирование комнаты {roomNumber} пользователем {userLogin}");
             return JavaScript($"window.location = 'https://localhost:44399/Home/UserBookings'");
         }
@@ -312,14 +327,16 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "user")]
         public ActionResult UserBookings()
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, получение пользователя по логину");
-            User user = CommunicationWithDataBase.GetUserByLogin(User.Identity.Name);
+            User user = repository.GetUserByLogin(User.Identity.Name);
             if (user == null)
             {
                 logger.Debug($"Ошибка. не возможно получить пользователя");
             }
             logger.Debug($"Обращение к базе данных, получение комнат забронированых пользователем {user.Login}");
-            List<Booking> bookings = CommunicationWithDataBase.GetUserBookings(user.Id);
+            List<Booking> bookings = repository.GetUserBookings(user.Id);
             List<Booking> currentBookings = bookings.Where(b => b.BookingStatusId == 2).ToList();
 
             logger.Info($"Возвращение забронированных пользователем комнат");
@@ -329,11 +346,13 @@ namespace HotelEpam.Controllers
         [Authorize(Roles = "manager")]
         public ActionResult ActuallyBookings()
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, обновление статуса бронирований");
-            CommunicationWithDataBase.UpdateAllOverdueBookings();
+            repository.UpdateAllOverdueBookings();
 
             logger.Debug($"Обращение к базе данных, получение обработанных запросов");
-            List<Booking> currentBookings = CommunicationWithDataBase.GetBookings()
+            List<Booking> currentBookings = repository.GetBookings()
                 .Where(b => b.BookingStatusId != 1 && b.DateEnd.AddDays(7) > DateTime.Now).ToList();
 
             return View(currentBookings);
@@ -343,37 +362,45 @@ namespace HotelEpam.Controllers
         [HttpPost]
         public ActionResult ReportUser(int id)
         {
-            User user = CommunicationWithDataBase.GetUserById(id);
+            IRepository repository = new CommunicationWithDataBase();
+
+            User user = repository.GetUserById(id);
             if (user == null)
             {
                 logger.Error($"Пользователя с id {id} не сущестувует");
             }
 
             logger.Debug($"Обращение к базе данных, жалоба на пользователя");
-            CommunicationWithDataBase.ReportUser(id);
+            repository.ReportUser(id);
             logger.Debug($"Жалоба на пользователя была оставлена");
 
-            return PartialView(user.Login);
+            return View();
         }
 
+        // Process of changing booking status on paid.
         [Authorize(Roles = "manager")]
         [HttpPost]
         public ActionResult ConfirmPayment(int id)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, для изменения статуса бронирования");
-            CommunicationWithDataBase.ConfirmPayment(id);
+            repository.ConfirmPayment(id);
             logger.Debug($"Оплата подтверждена");
-            return View();
+            return JavaScript($"window.location = 'https://localhost:44399/Home/ActuallyBookings'");
         }
 
+        // Process of deleting booking.
         [Authorize(Roles = "manager")]
         [HttpPost]
         public ActionResult DeleteBooking(int id)
         {
+            IRepository repository = new CommunicationWithDataBase();
+
             logger.Debug($"Обращение к базе данных, для изменения статуса бронирования");
-            CommunicationWithDataBase.DeleteBooking(id);
+            repository.DeleteBooking(id);
             logger.Info($"Бронирование снято");
-            return View();
+            return JavaScript($"window.location = 'https://localhost:44399/Home/ActuallyBookings'");
         }
     }
 }

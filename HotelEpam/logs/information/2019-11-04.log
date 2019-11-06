@@ -1,0 +1,146 @@
+2019-11-04 21:22:51.5991 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-04 21:22:58.1158 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Ошибка входа, пользователь aloha1 заблокирован в системе 
+
+2019-11-04 21:22:58.1218 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-11-04 21:23:09.4992 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-04 21:23:09.5251 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-04 21:23:09.5492 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь sanya123 выполнил вход на сайт 
+
+2019-11-04 21:23:14.1990 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:23:20.4329 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:23:20.4329 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:23:20.5182 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:23:24.6043 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:36:47.0186 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:36:47.0770 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:36:47.4753 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:41:48.8719 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:41:48.9749 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:41:49.2717 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:41:53.3568 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:42:21.5256 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:42:21.5256 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:42:21.5456 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:43:00.2416 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:43:00.2486 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:43:00.2647 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:43:04.2035 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:43:31.5485 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 05.11.2019 00:00:00 по 07.11.2019 00:00:00 число 
+
+2019-11-04 21:43:31.6300 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:44:00.3838 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:44:00.3838 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:44:00.4124 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:44:04.3772 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:44:13.7637 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 07.11.2019 00:00:00 по 08.11.2019 00:00:00 число 
+
+2019-11-04 21:44:13.7995 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:46:36.8430 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 05.11.2019 00:00:00 по 07.11.2019 00:00:00 число 
+
+2019-11-04 21:46:37.3012 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:47:17.7505 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 06.11.2019 00:00:00 по 07.11.2019 00:00:00 число 
+
+2019-11-04 21:47:17.7655 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:47:52.5714 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 06.11.2019 00:00:00 по 08.11.2019 00:00:00 число 
+
+2019-11-04 21:47:52.5714 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:48:32.0651 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 07.11.2019 00:00:00 по 09.11.2019 00:00:00 число 
+
+2019-11-04 21:48:32.0818 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:49:03.0590 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 08.11.2019 00:00:00 по 09.11.2019 00:00:00 число 
+
+2019-11-04 21:49:03.0839 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:49:23.0264 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:49:23.0264 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:49:23.1321 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:49:27.0597 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:49:27.0597 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:49:27.0908 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:49:31.0303 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:49:37.5810 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:49:38.7752 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:49:38.7752 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:49:38.8051 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:49:41.3003 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:49:44.2297 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:50:44.3609 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:51:47.3550 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:52:00.8994 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:52:42.0553 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 21:52:45.4857 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-04 21:52:45.4946 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем sanya123 
+
+2019-11-04 21:52:45.5894 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-04 21:52:58.4849 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 05.11.2019 00:00:00 по 07.11.2019 00:00:00 число 
+
+2019-11-04 21:52:58.5328 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:53:40.8222 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 06.11.2019 00:00:00 по 08.11.2019 00:00:00 число 
+
+2019-11-04 21:53:40.8501 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:53:58.8692 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 07.11.2019 00:00:00 по 09.11.2019 00:00:00 число 
+
+2019-11-04 21:53:58.8951 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 21:55:12.0192 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 06.11.2019 00:00:00 по 07.11.2019 00:00:00 число 
+
+2019-11-04 21:55:12.0372 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-04 22:21:25.0523 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-04 22:21:25.0523 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+

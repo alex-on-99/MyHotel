@@ -159,6 +159,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom-styles.css" />
+    <Content Include="Content\icons\instagram.png" />
+    <Content Include="Content\icons\telegram.png" />
     <Content Include="Content\images\bogdan-glisik-o5Oz9aq_BRo-unsplash.jpg" />
     <Content Include="Content\images\daniel-dinuzzo-qCjolcMFaLI-unsplash.jpg" />
     <Content Include="Content\images\dario-valenzuela-1-9nfcJ7-Zk-unsplash.jpg" />
@@ -200,6 +202,7 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\hotel\account.js" />
+    <Content Include="Scripts\hotel\main.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -257,10 +260,7 @@
     <Content Include="Views\Admin\UpdateRoomStatus.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Home\ActuallyBookings.cshtml" />
-    <Content Include="Views\Home\ReportUser.cshtml" />
     <Content Include="Views\Shared\ManagerLayout.cshtml" />
-    <Content Include="Views\Home\ConfirmPayment.cshtml" />
-    <Content Include="Views\Home\DeleteBooking.cshtml" />
     <Content Include="Views\Shared\AccountLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>

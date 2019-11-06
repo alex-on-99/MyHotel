@@ -28,7 +28,7 @@
                 @RoomInfoRow(room)
 
                 @{
-                    Booking booking = room.Bookings.FirstOrDefault(b => b.DateStart > DateTime.Now);
+                    Booking booking = room.Bookings.OrderBy(b => b.DateStart).FirstOrDefault(b => b.DateStart > DateTime.Now);
                     string result = booking?.DateStart.ToString("d") ?? "-";
                 }
 
@@ -46,7 +46,7 @@
             <div class="bg-light mb-3 pl-2 pb-2 pt-2 rounded">
                 @RoomInfoRow(room)
                 @{
-                    Booking booking = room.Bookings.FirstOrDefault(b => b.DateEnd > DateTime.Now);
+                    Booking booking = room.Bookings.OrderBy(b => b.DateEnd).FirstOrDefault(b => b.DateEnd > DateTime.Now);
                     string result = booking?.DateStart.ToString("d") ?? "-";
                 }
 

@@ -38,7 +38,9 @@ namespace HotelEpam.Providers
 
         public override string[] GetRolesForUser(string username)
         {
-            string userRole = CommunicationWithDataBase.GetUserRole(username);
+            IRepository repository = new CommunicationWithDataBase();
+
+            string userRole = repository.GetUserRole(username);
             string[] roles = new string[]{};
             
             if (userRole != null)

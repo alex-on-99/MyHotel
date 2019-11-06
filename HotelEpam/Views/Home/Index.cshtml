@@ -1,9 +1,40 @@
 ﻿@{
     Layout = "~/Views/Shared/HotelLayout.cshtml";
 }
-    <section class="container-fluid">
-        <article id="preview-img-section" class="row justify-content-center">
-            <img src="~/Content/images/daniel-dinuzzo-qCjolcMFaLI-unsplash.jpg" alt="Hotel" id="main-img" />
-        </article>
+<section class="container-fluid">
+    <article id="preview-img-section" class="row justify-content-center">
+        <img src="~/Content/images/daniel-dinuzzo-qCjolcMFaLI-unsplash.jpg" alt="Hotel" id="main-img" />
+    </article>
+    <article class="container-fluid mt-4">
+        <div class="row justify-content-center">
+            <fieldset class="col-4 border border-dark mr-5 pl-2 pr-4 pl-4 pb-4">
+                <legend class="col-3">О нас</legend>
+                <div class="text-center">
+                    Отель расположен в 200 метрах от центра города.
+                    Наши апартаменты это удобность и комфорт.
+                    Вы можете оставить заявление на проживание
+                    выбрав тип комнаты и количество жильцов, 
+                    а наш администратор подберёт вам подходящие 
+                    апартаменты. Также вы можете самостоятельно забронировать подходящую
+                    для вас комнату в разделе "Бронирование".
+                </div>
+            </fieldset>
+            <fieldset class="col-4 border border-dark ml-5">
+                <legend class="col-3">Тарифы</legend>
+                <div class="text-center pt-1">
+                    <span class="mb-5">Цена указана за проживание одного человека за один день:</span>
+                    <ul class="list-unstyled">
+                        <li>Економ - 400 грн</li>
+                        <li>Стандарт - 620 грн</li>
+                        <li>Люкс - 900 грн</li>
+                        <li>Королевский - 1450 грн</li>
+                    </ul>
+                    <span>
+                        Цена за второго жильца будет дешевле на 15%, а за третьего дешевле на 15% чем второго.
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+    </article>
 
-    </section>
+</section>

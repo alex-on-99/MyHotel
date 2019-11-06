@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace ServiceLibrary
 {
     // Class that is responsible for communication with the database.
-    public static class CommunicationWithDataBase
+    public class CommunicationWithDataBase : IRepository
     {
         // Creating user.
-        public static void CreateUser(string firstName, string secondName,
+        public void CreateUser(string firstName, string secondName,
             string login, string email, string password, DateTime dateOfBirth)
         {
             using (var ctx = new HotelContext("HotelContext"))
@@ -34,7 +34,7 @@ namespace ServiceLibrary
         }
 
         // Select user by id.
-        public static User GetUserById(int id)
+        public User GetUserById(int id)
         {
             User user;
             using (var ctx = new HotelContext("HotelContext"))
@@ -46,7 +46,7 @@ namespace ServiceLibrary
         }
 
         // Select user by login.
-        public static User GetUserByLogin(string login)
+        public User GetUserByLogin(string login)
         {
             User user;
             using (var ctx = new HotelContext("HotelContext"))
@@ -58,7 +58,7 @@ namespace ServiceLibrary
         }
 
         // Select user by email.
-        public static User GetUserByEmail(string email)
+        public User GetUserByEmail(string email)
         {
             User user;
             using (var ctx = new HotelContext("HotelContext"))
@@ -70,7 +70,7 @@ namespace ServiceLibrary
         }
 
         // Select user's role.
-        public static string GetUserRole(string login)
+        public string GetUserRole(string login)
         {
             User user = GetUserByLogin(login);
             string role = null;
@@ -87,7 +87,7 @@ namespace ServiceLibrary
         }
 
         // Check user authorization data.
-        public static bool CheckUserAuthorization(string login, string password)
+        public bool CheckUserAuthorization(string login, string password)
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
@@ -103,7 +103,7 @@ namespace ServiceLibrary
         }
 
         // Select all rooms in hotel.
-        public static List<Room> GetAllRooms()
+        public List<Room> GetAllRooms()
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
@@ -112,7 +112,7 @@ namespace ServiceLibrary
         }
 
         // Create request.
-        public static void CreateRequest(string userLogin, int classRoomId, int countOfPlaces, DateTime start,
+        public void CreateRequest(string userLogin, int classRoomId, int countOfPlaces, DateTime start,
             DateTime end)
         {
             using (var ctx = new HotelContext("HotelContext"))
@@ -151,7 +151,7 @@ namespace ServiceLibrary
         }
 
         // Create booking.
-        public static void CreateBooking(string userLogin, int roomNumber, DateTime start,
+        public void CreateBooking(string userLogin, int roomNumber, DateTime start,
             DateTime end)
         {
             using (var ctx = new HotelContext("HotelContext"))
@@ -181,7 +181,7 @@ namespace ServiceLibrary
         }
 
         // Select bookings by id.
-        public static Booking GetBookingById(int id)
+        public Booking GetBookingById(int id)
         {
             Booking booking;
 
@@ -195,7 +195,7 @@ namespace ServiceLibrary
         }
 
         // Get booking status by id.
-        public static BookingStatus GetBookingStatusById(int id)
+        public BookingStatus GetBookingStatusById(int id)
         {
             BookingStatus bookingStatus;
 
@@ -208,7 +208,7 @@ namespace ServiceLibrary
         }
 
         // Select all booking requests.
-        public static List<Booking> GetBookingRequests()
+        public List<Booking> GetBookingRequests()
         {
             var roomRequests = new List<Booking>();
             using (var ctx = new HotelContext("HotelContext"))
@@ -221,7 +221,7 @@ namespace ServiceLibrary
         }
 
         // Set room in booking.
-        public static void UpdateRoomInBooking(int bookingId, int roomNumber)
+        public void UpdateRoomInBooking(int bookingId, int roomNumber)
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
@@ -241,15 +241,16 @@ namespace ServiceLibrary
         }
 
         // Select all free rooms in certain dates.
-        public static List<Room> GetFreeRooms(DateTime start, DateTime end)
+        public List<Room> GetFreeRooms(DateTime start, DateTime end)
         {
-            List<Room> rooms = CommunicationWithDataBase.GetAllRooms();
+            List<Room> rooms = GetAllRooms();
             List<Room> freeRooms = new List<Room>();
             using (var ctx = new HotelContext("HotelContext"))
             {
                 List<Booking> bookings = ctx.Bookings.Where(b =>
                     (start >= b.DateStart && start < b.DateEnd) ||
-                    (end > b.DateStart && end < b.DateEnd)).ToList();
+                    (end > b.DateStart && end < b.DateEnd) ||
+                    (start < b.DateStart && end >= b.DateEnd)).ToList();
 
                 foreach (Room room in rooms)
                 {
@@ -274,7 +275,7 @@ namespace ServiceLibrary
         }
 
         // Select all bookings.
-        public static List<Booking> GetBookings()
+        public List<Booking> GetBookings()
         {
             List<Booking> bookings = new List<Booking>();
 
@@ -289,14 +290,14 @@ namespace ServiceLibrary
         }
 
         // Select user's bookings by user id.
-        public static List<Booking> GetUserBookings(int userId)
+        public List<Booking> GetUserBookings(int userId)
         {
             List<Booking> bookings = GetBookings();
             return bookings.Where(b => b.UserId == userId).ToList();
         }
 
         // Select room classes.
-        public static List<ClassRoom> GetRoomClasses()
+        public List<ClassRoom> GetRoomClasses()
         {
             List<ClassRoom> classRooms;
             using (var ctx = new HotelContext("HotelContext"))
@@ -308,7 +309,7 @@ namespace ServiceLibrary
         }
 
         // Select room by number.
-        public static Room GetRoomByNumber(int number)
+        public Room GetRoomByNumber(int number)
         {
             Room room;
             using (var ctx = new HotelContext("HotelContext"))
@@ -320,7 +321,7 @@ namespace ServiceLibrary
         }
 
         // Create new room.
-        public static void CreateRoom(int number, int classRoomId, int countOfPlaces)
+        public void CreateRoom(int number, int classRoomId, int countOfPlaces)
         {
             Room room = new Room()
             {
@@ -338,7 +339,7 @@ namespace ServiceLibrary
         }
 
         // Update room availability.
-        public static void UpdateRoomAvailability(int number, bool availability)
+        public void UpdateRoomAvailability(int number, bool availability)
         {
             try
             {
@@ -357,7 +358,7 @@ namespace ServiceLibrary
         }
 
         // Change booking status.
-        private static void UpdateBookingStatus(int bookingId, int statusId)
+        private void UpdateBookingStatus(int bookingId, int statusId)
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
@@ -369,9 +370,9 @@ namespace ServiceLibrary
         }
 
         // Change status in overdue bookings.
-        public static void UpdateAllOverdueBookings()
+        public void UpdateAllOverdueBookings()
         {
-            List<Booking> currentBookings = CommunicationWithDataBase.GetBookings()
+            List<Booking> currentBookings = GetBookings()
                 .Where(b => b.BookingStatusId != 1 && b.DateEnd.AddDays(7) > DateTime.Now).ToList();
 
             foreach (Booking booking in currentBookings)
@@ -384,7 +385,7 @@ namespace ServiceLibrary
         }
 
         // Blocking user.
-        public static void ReportUser(int userId)
+        public void ReportUser(int userId)
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
@@ -402,7 +403,7 @@ namespace ServiceLibrary
                         DateTime block2 = DateTime.Now.AddYears(1);
                         user.BlockDate = block2;
                         break;
-                    case 3:
+                    default :
                         DateTime block3 = DateTime.Now.AddYears(100);
                         user.BlockDate = block3;
                         break;
@@ -413,8 +414,8 @@ namespace ServiceLibrary
             }
         }
 
-        // Change booking status on payed.
-        public static void ConfirmPayment(int bookingId)
+        // Change booking status on paid.
+        public void ConfirmPayment(int bookingId)
         {
             using (var ctx = new HotelContext("HotelContext"))
             {
@@ -430,7 +431,7 @@ namespace ServiceLibrary
         }
 
         // Delete booking.
-        public static void DeleteBooking(int bookingId)
+        public void DeleteBooking(int bookingId)
         {
             using (var ctx = new HotelContext("HotelContext"))
             {

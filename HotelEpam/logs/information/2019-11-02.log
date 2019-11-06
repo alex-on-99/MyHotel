@@ -1,0 +1,352 @@
+2019-11-02 00:55:49.2506 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 00:55:54.3226 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-11-02 00:56:02.3370 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 00:56:02.3602 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-11-02 00:56:04.3902 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 00:56:04.4035 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-11-02 00:56:21.0709 | HotelEpam.Controllers.AccountController.Registration | DEBUG | Попытка создания нового пользователя 
+
+2019-11-02 00:56:37.2539 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 00:56:37.3896 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 00:56:37.3957 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha выполнил вход на сайт 
+
+2019-11-02 00:56:52.4194 | HotelEpam.Controllers.AdminController.CreatingRoom | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:56:52.4795 | HotelEpam.Controllers.AdminController.CreatingRoom | INFO | Отказ в добавлении новой комнаты 
+
+2019-11-02 00:56:58.2505 | HotelEpam.Controllers.AdminController.CreatingRoom | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:56:58.2555 | HotelEpam.Controllers.AdminController.CreatingRoom | DEBUG | Обращение к базе данных, для добавления новой комнаты 
+
+2019-11-02 00:56:58.2555 | HotelEpam.Controllers.AdminController.CreatingRoom | INFO | В базу данных добавлена новая комната 
+
+2019-11-02 00:57:00.5535 | HotelEpam.Controllers.AdminController.UpdateRoomStatus | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:57:09.7714 | HotelEpam.Controllers.AdminController.ProcessingOfRoomStatusUpdating | DEBUG | Обращение к базе данных, для обновления статуса комнаты 
+
+2019-11-02 00:57:09.7714 | HotelEpam.Controllers.AdminController.ProcessingOfRoomStatusUpdating | INFO | Стату комнаты 203 обновлен 
+
+2019-11-02 00:57:09.8366 | HotelEpam.Controllers.AdminController.UpdateRoomStatus | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:57:12.9429 | HotelEpam.Controllers.AdminController.UpdateRoomStatus | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:57:14.7003 | HotelEpam.Controllers.AdminController.CreatingRoom | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:57:14.7109 | HotelEpam.Controllers.AdminController.CreatingRoom | INFO | Отказ в добавлении новой комнаты 
+
+2019-11-02 00:57:18.1972 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha покинул систему 
+
+2019-11-02 00:57:36.2974 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 00:57:36.3270 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 00:57:36.3270 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 00:57:54.3585 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-02 00:57:54.3695 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем aloha1 
+
+2019-11-02 00:57:54.5224 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-02 00:58:06.4418 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:58:20.8841 | HotelEpam.Controllers.HomeController.RoomReservation | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:58:31.9346 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 03.11.2019 00:00:00 по 05.11.2019 00:00:00 число 
+
+2019-11-02 00:58:32.0124 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-02 00:58:44.8196 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 00:58:51.3251 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 00:58:51.3557 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 00:58:51.3557 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь alex-on-99 выполнил вход на сайт 
+
+2019-11-02 00:58:53.2899 | HotelEpam.Controllers.HomeController.NotProcessedRequests | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:58:53.3145 | HotelEpam.Controllers.HomeController.NotProcessedRequests | DEBUG | Обращение к базе данных, получение запросов на проживание 
+
+2019-11-02 00:59:18.1579 | HotelEpam.Controllers.HomeController.AllRooms | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:59:20.6802 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:59:20.7093 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Выборка нужных комнат из всех доступных 
+
+2019-11-02 00:59:29.7905 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:59:29.8186 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Выборка нужных комнат из всех доступных 
+
+2019-11-02 00:59:36.2086 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:59:36.2414 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Выборка нужных комнат из всех доступных 
+
+2019-11-02 00:59:44.8792 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Обращение к базе данных, получение комнат 
+
+2019-11-02 00:59:44.9072 | HotelEpam.Controllers.HomeController.PartialRooms | DEBUG | Выборка нужных комнат из всех доступных 
+
+2019-11-02 00:59:50.0679 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 00:59:50.1926 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:00:00.2494 | HotelEpam.Controllers.HomeController.ConfirmPayment | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 01:00:00.4173 | HotelEpam.Controllers.HomeController.ConfirmPayment | DEBUG | Оплата подтверждена 
+
+2019-11-02 01:00:06.0066 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:00:06.0786 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:00:22.9116 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Обращение к базе данных, жалоба на пользователя 
+
+2019-11-02 01:00:22.9449 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Жалоба на пользователя была оставлена 
+
+2019-11-02 01:00:30.2655 | HotelEpam.Controllers.HomeController.DeleteBooking | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 01:00:30.3529 | HotelEpam.Controllers.HomeController.DeleteBooking | INFO | Бронирование снято 
+
+2019-11-02 01:00:31.7925 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:00:31.8669 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:00:36.3773 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь alex-on-99 покинул систему 
+
+2019-11-02 01:00:42.5651 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:00:42.5894 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:00:42.5894 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 01:00:50.6448 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 01:00:59.1478 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:00:59.1620 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:00:59.1620 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь alex-on-99 выполнил вход на сайт 
+
+2019-11-02 01:01:00.8338 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:01:00.8997 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:01:16.8875 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Обращение к базе данных, жалоба на пользователя 
+
+2019-11-02 01:01:16.9103 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Жалоба на пользователя была оставлена 
+
+2019-11-02 01:01:19.1411 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:01:19.1859 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:01:23.0059 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:01:23.0820 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:01:26.7100 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь alex-on-99 покинул систему 
+
+2019-11-02 01:01:32.3513 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:01:32.3725 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:01:32.3776 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 01:03:00.1520 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 01:03:08.7674 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:03:08.7876 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:03:08.7876 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь alex-on-99 выполнил вход на сайт 
+
+2019-11-02 01:03:10.8890 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:03:10.9287 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:03:18.9285 | HotelEpam.Controllers.HomeController.DeleteBooking | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 01:03:18.9499 | HotelEpam.Controllers.HomeController.DeleteBooking | INFO | Бронирование снято 
+
+2019-11-02 01:03:20.7263 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:03:20.7920 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:03:30.8748 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Обращение к базе данных, жалоба на пользователя 
+
+2019-11-02 01:03:30.8990 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Жалоба на пользователя была оставлена 
+
+2019-11-02 01:03:33.2623 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:03:33.3219 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:06:12.6492 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:06:16.0464 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:06:16.0464 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 01:06:27.7714 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Обращение к базе данных, получение комнат сводных с 15.11.2019 00:00:00 по 16.11.2019 00:00:00 число 
+
+2019-11-02 01:06:28.1746 | HotelEpam.Controllers.HomeController.FreeRoomsForBooking | DEBUG | Установка куки даты проживания пользователя 
+
+2019-11-02 01:06:34.6279 | HotelEpam.Controllers.HomeController.BookingRoomByUser | INFO | Обращение к базе данных для создания нового бронирования 
+
+2019-11-02 01:06:34.9724 | HotelEpam.Controllers.HomeController.BookingRoomByUser | INFO | Бронирование комнаты 102 пользователем aloha1 
+
+2019-11-02 01:06:35.0166 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-02 01:06:35.0223 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем aloha1 
+
+2019-11-02 01:06:35.1293 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-02 01:06:37.6594 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 01:06:55.7231 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:06:55.7588 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:06:55.7588 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 01:06:57.5728 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-02 01:06:57.5728 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем aloha1 
+
+2019-11-02 01:06:57.6450 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-02 01:07:17.7968 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 01:07:29.2656 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:07:29.2937 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 01:07:29.2937 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь alex-on-99 выполнил вход на сайт 
+
+2019-11-02 01:07:34.2904 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:07:34.3664 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:07:40.8540 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Обращение к базе данных, жалоба на пользователя 
+
+2019-11-02 01:07:40.9294 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Жалоба на пользователя была оставлена 
+
+2019-11-02 01:07:43.7858 | HotelEpam.Controllers.HomeController.DeleteBooking | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 01:07:43.9552 | HotelEpam.Controllers.HomeController.DeleteBooking | INFO | Бронирование снято 
+
+2019-11-02 01:07:45.6808 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 01:07:45.7455 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 01:07:51.9021 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь alex-on-99 покинул систему 
+
+2019-11-02 01:07:59.0549 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 01:07:59.0659 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Ошибка входа, пользователь aloha1 заблокирован в системе 
+
+2019-11-02 01:07:59.0659 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-11-02 16:42:49.6082 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 16:42:53.5274 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 16:42:53.5274 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь alex-on-99 выполнил вход на сайт 
+
+2019-11-02 16:42:56.6865 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:42:57.0824 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:43:00.6068 | HotelEpam.Controllers.HomeController.ConfirmPayment | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 16:43:00.7534 | HotelEpam.Controllers.HomeController.ConfirmPayment | DEBUG | Оплата подтверждена 
+
+2019-11-02 16:43:17.2342 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:43:17.2561 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:43:41.7679 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:43:41.7998 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:44:07.1163 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 16:44:09.3099 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 16:44:09.3099 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь alex-on-99 выполнил вход на сайт 
+
+2019-11-02 16:44:11.9168 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:44:12.1521 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:44:15.6512 | HotelEpam.Controllers.HomeController.ConfirmPayment | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 16:44:15.9323 | HotelEpam.Controllers.HomeController.ConfirmPayment | DEBUG | Оплата подтверждена 
+
+2019-11-02 16:44:15.9671 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:44:15.9881 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:44:21.4357 | HotelEpam.Controllers.HomeController.DeleteBooking | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 16:44:21.4865 | HotelEpam.Controllers.HomeController.DeleteBooking | INFO | Бронирование снято 
+
+2019-11-02 16:44:21.5125 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:44:21.5354 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:44:31.1550 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Обращение к базе данных, жалоба на пользователя 
+
+2019-11-02 16:44:31.1780 | HotelEpam.Controllers.HomeController.ReportUser | DEBUG | Жалоба на пользователя была оставлена 
+
+2019-11-02 16:44:35.0024 | HotelEpam.Controllers.HomeController.DeleteBooking | DEBUG | Обращение к базе данных, для изменения статуса бронирования 
+
+2019-11-02 16:44:35.0134 | HotelEpam.Controllers.HomeController.DeleteBooking | INFO | Бронирование снято 
+
+2019-11-02 16:44:35.0403 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, обновление статуса бронирований 
+
+2019-11-02 16:44:35.0742 | HotelEpam.Controllers.HomeController.ActuallyBookings | DEBUG | Обращение к базе данных, получение обработанных запросов 
+
+2019-11-02 16:44:45.2467 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь alex-on-99 покинул систему 
+
+2019-11-02 16:44:49.4435 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 16:44:49.4435 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Ошибка входа, пользователь aloha1 заблокирован в системе 
+
+2019-11-02 16:44:49.4494 | HotelEpam.Controllers.AccountController.Authorization | INFO | Отказ входа. некорректные данные 
+
+2019-11-02 16:46:15.4930 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 16:46:15.5040 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 16:46:15.5040 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 16:46:18.0042 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение пользователя по логину 
+
+2019-11-02 16:46:18.0042 | HotelEpam.Controllers.HomeController.UserBookings | DEBUG | Обращение к базе данных, получение комнат забронированых пользователем aloha1 
+
+2019-11-02 16:46:18.0361 | HotelEpam.Controllers.HomeController.UserBookings | INFO | Возвращение забронированных пользователем комнат 
+
+2019-11-02 16:46:20.7282 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 16:46:35.6693 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 16:46:35.6822 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 16:46:35.6822 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 17:19:45.6392 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
+2019-11-02 17:23:36.9704 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для получения данных о пользователе 
+
+2019-11-02 17:23:39.4341 | HotelEpam.Controllers.AccountController.Authorization | DEBUG | Обращение к базе данных для проверки подлиности данных авторизации 
+
+2019-11-02 17:23:39.4341 | HotelEpam.Controllers.AccountController.Authorization | INFO | Пользователь aloha1 выполнил вход на сайт 
+
+2019-11-02 17:24:10.4048 | HotelEpam.Controllers.HomeController.Exit | INFO | Пользователь aloha1 покинул систему 
+
